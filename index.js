@@ -9,7 +9,7 @@ function getit()
 	hour = Math.floor((new Date()).getHours() % 12) || 12
 	//if (noHourBells) return "audio/Toll- 4Quarter.mp3"
 	//if (hourBells)
-	return "audio/" + hour.padStart(2, '0') + " hour.mp3"
+	return "audio/" + hour.toString().padStart(2, '0') + " hour.mp3"
 	
 }
 
