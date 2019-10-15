@@ -16,7 +16,8 @@ function getit()
 // crude, it ignores seconds
 function nextalarm()
 {
-	waitfor = (15-Math.floor((new Date()).getMinutes() % 15)) *60 * 1000 +1
+	d = new Date()
+	waitfor = (((14-Math.floor(d.getMinutes() % 15)) *60) + (60-d.getSeconds()) + 1 ) * 1000 
 	console.log("wait for " + waitfor)
 	setTimeout(() => {
 		sampleBasedOnCurrentTime = getit()
