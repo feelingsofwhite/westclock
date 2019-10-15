@@ -1,4 +1,7 @@
 var player = require('play-sound')(opts = {})
+
+// maybe https://www.npmjs.com/package/wait-until
+// also simple native stuff https://flaviocopes.com/javascript-sleep/
  
 function getit()
 {
