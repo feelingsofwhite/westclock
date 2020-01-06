@@ -1,5 +1,15 @@
 var player = require('play-sound')(opts = {})
 
+const volume = 0.05 // a floating point value between 0.0, volume minimum, and 1.0, volume maximum... do NOT assume a value 0.5 is literally half volume.
+
+// // $ mplayer sample.mp3 
+// player.play('sample.mp3', { afplay: ['-v', volume ]  lower volume for afplay on OSX  }, function(err){
+//   if (err) throw err
+// })
+
+// return
+
+
 // maybe https://www.npmjs.com/package/wait-until
 // also simple native stuff https://flaviocopes.com/javascript-sleep/
  
@@ -26,8 +36,7 @@ function nextalarm()
 		sampleBasedOnCurrentTime = getit()
 		console.log(sampleBasedOnCurrentTime)
 
-
-		player.play(sampleBasedOnCurrentTime, function(err){
+		player.play(sampleBasedOnCurrentTime, { afplay: ['-v', volume ] }, function(err){
 		  if (err) throw err
 
 		  nextalarm()
@@ -41,8 +50,7 @@ nextalarm()
 return
 
 
-
 // $ mplayer foo.mp3 
-player.play('sample.mp3', function(err){
+player.play('sample.mp3', { afplay: ['-v', 0.5 ] /* lower volume for afplay on OSX */ }, function(err){
   if (err) throw err
 })
